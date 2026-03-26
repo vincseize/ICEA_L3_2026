@@ -32,8 +32,31 @@ class Database {
         CREATE TABLE IF NOT EXISTS clients (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nom VARCHAR(100) NOT NULL,
-            date_creation DATETIME DEFAULT CURRENT_TIMESTAMP
+            date_creation DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
         )";
+
+        "
+        CREATE TABLE IF NOT EXISTS questions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            texte TEXT NOT NULL,
+            type BOOL,
+            id_questions INTEGER AUTOINCREMENT,
+            date_creation DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        )";
+
+
+        "
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            login VARCHAR(75) NOT NULL,
+            password VARCHAR(25) NOT NULL,
+            date_creation DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        )";
+        
+
         $this->pdo->exec($sql);
 
     }
